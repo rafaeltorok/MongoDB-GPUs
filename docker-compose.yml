@@ -1,0 +1,28 @@
+services:
+  server:
+    build: ./server
+    container_name: gpus-backend
+    env_file:
+      - ./server/.env
+    expose:
+      - "4000"
+    networks:
+      - app-network
+
+  nginx:
+    build:
+      context: .
+      dockerfile: nginx/Dockerfile
+      args:
+        - VITE_BACKEND_URL=/graphql
+    container_name: gpus-nginx
+    ports:
+      - "8000:80"
+    depends_on:
+      - server
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge

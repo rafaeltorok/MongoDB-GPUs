@@ -1,0 +1,81 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+  font-family: 'digital-dreamers', 'sans-serif';
+  font-size: 0.8rem;
+}
+
+@font-face {
+  font-family: 'digital-dreamers';
+  src: url('./fonts/DigitalDreamers-jy99.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+.gpu-table {
+  max-width: 500px;
+  margin-bottom: 2rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 1rem;
+  background-color: rgba(0, 0, 0, 0.85); /* Optional: dark background for contrast */
+}
+
+.gpu-table td,
+.gpu-table th {
+  color: white;
+  border-color: rgba(68, 68, 68, 0.25); /* Optional: adjust border for dark mode */
+}
+
+.main-table-header {
+  background-color: rgba(34, 34, 34, 0.3);
+  text-align: center;
+  font-weight: bold;
+  font-size: 2rem;
+  color: 'white';
+}
+
+.main-table-header,
+.table-header {
+  text-align: center;
+  font-weight: bold;
+}
+
+.table-header {
+  background-color: rgba(34, 34, 34, 0.5);
+  text-decoration: underline;
+}
+
+.nvidia thead th,
+.nvidia td {
+  color: #76b900;
+}
+
+.amd thead th,
+.amd td {
+  color: red;
+}
+
+.intel thead th,
+.intel td {
+  color: #0068B5;
+}
+
+@media only screen and (hover: none) and (pointer: coarse) {
+  #root {
+    padding: 1rem;
+  }
+
+  .gpu-table {
+    max-width: 90%; /* Ensures labels take full width */
+    margin-bottom: 2rem;
+  }
+}
+
+@media only screen and (hover: none) and (pointer: coarse) and (orientation: landscape) {
+  #root {
+    width: 550px;
+  }
+}

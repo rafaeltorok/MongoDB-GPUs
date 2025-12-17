@@ -1,0 +1,66 @@
+version: '3.8'
+
+services:
+  mongo:
+    image: mongo
+    container_name: mongo
+    networks:
+      - network
+    ports:
+      - "27017:27017"
+    volumes:
+      - ./mongo-data:/data/db
+
+  server:
+    build:
+      context: ./server
+      dockerfile: dev.Dockerfile
+    container_name: mongodb-gpus-server
+    volumes:
+      - ./server:/usr/src/server
+      - /usr/src/server/node_modules
+    networks:
+      - network
+    ports:
+      - "4000:4000"
+    environment:
+      - MONGODB_URI=mongodb://mongo:27017/gpus_database
+    depends_on:
+      - mongo
+    command: npm run dev
+
+  client:
+    build:
+      context: ./client
+      dockerfile: dev.Dockerfile
+    container_name: mongodb-gpus-client
+    volumes:
+      - ./client:/usr/src/client
+      - /usr/src/client/node_modules
+    networks:
+      - network
+    ports:
+      - "5173:5173"
+    depends_on:
+      - server
+    command: npm run dev -- --host
+
+  alt-client:
+    build:
+      context: ./alternate-client
+      dockerfile: dev.Dockerfile
+    container_name: mongodb-gpus-alt-client
+    volumes:
+      - ./alternate-client:/usr/src/alternate_client
+      - /usr/src/alternate_client/node_modules
+    networks:
+      - network
+    ports:
+      - "5174:5174"
+    depends_on:
+      - server
+    command: npm run dev -- --host --port 5174
+
+networks:
+  network:
+    driver: bridge
