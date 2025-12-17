@@ -7,7 +7,7 @@
 
 
 ## About
-A Node.js + Express + Apollo GraphQL backend that serves a built React frontend and connects to MongoDB Atlas using environment variables. The Docker image was pushed to a public Docker Hub repository and deployed as a single Web Service on Render.
+A Node.js + Express + Apollo GraphQL backend that serves a built React frontend and connects to MongoDB Atlas using environment variables. The Docker image was pushed to a public Docker Hub repository and deployed as a single Web Service on Render. The Render deployment is triggered automatically on GitHub push.
 
 **Render Web Service link:** https://mongodb-gpus.onrender.com
 
