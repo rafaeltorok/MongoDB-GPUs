@@ -14,7 +14,7 @@ const typeDefs = gql`
     cores: Int!
     tmus: Int!
     rops: Int!
-    vram: Int!
+    vram: Float!
     bus: Int!
     memtype: String!
     baseclock: Int!
@@ -30,7 +30,7 @@ const typeDefs = gql`
       cores: Int!
       tmus: Int!
       rops: Int!
-      vram: Int!
+      vram: Float!
       bus: Int!
       memtype: String!
       baseclock: Int!

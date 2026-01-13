@@ -16,8 +16,10 @@ A Node.js + Express + Apollo GraphQL backend that serves a built React frontend 
 ### Docker Compose
 Development build
 ```
-docker-compose -f ./docker-compose.dev.yml up -d
+docker compose -f ./docker-compose.dev.yml up -d
 ```
+
+- The development build uses a containerized Mongo database for testing, preventing it from affecting the main MongoDB database from the cloud server.
 
 Production build
 ```

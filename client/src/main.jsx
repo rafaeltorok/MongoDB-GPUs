@@ -8,7 +8,7 @@ import {
 } from '@apollo/client';
 
 const client = new ApolloClient({
-  uri: '/graphql',
+  uri: import.meta.env.VITE_BACKEND_URL || '/graphql',
   // uri: import.meta.env.VITE_BACKEND_URL || `http://${window.location.hostname}:4000/graphql`,
   cache: new InMemoryCache(),
 });

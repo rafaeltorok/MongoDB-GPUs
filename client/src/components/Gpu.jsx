@@ -15,6 +15,7 @@ function Gpu({ gpu }) {
     : gpu.gpuline.toLowerCase() === 'arc'
     ? 'intel'
     : 'generic';
+  const vramToDisplay = gpu.vram < 1 ? `${gpu.vram * 1000}MB` : `${gpu.vram}GB`;
 
   const performance = calculatePerformance(gpu);
 
@@ -45,7 +46,7 @@ function Gpu({ gpu }) {
             </tr>
             <tr>
               <th>VRAM</th>
-              <td>{gpu.vram}GB {gpu.memtype}</td>
+              <td>{vramToDisplay} {gpu.memtype}</td>
             </tr>
             <tr>
               <th>BUS WIDTH</th>

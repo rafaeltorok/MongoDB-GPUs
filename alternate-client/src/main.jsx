@@ -11,7 +11,7 @@ import theme from './theme';
 
 
 const client = new ApolloClient({ 
-  uri: import.meta.env.VITE_BACKEND_URL || `http://${window.location.hostname}:4000/graphql`,
+  uri: import.meta.env.VITE_BACKEND_URL || '/graphql',
   cache: new InMemoryCache()
 });
 

@@ -1,13 +1,13 @@
 FROM node:20
 
-WORKDIR /usr/src/todo-backend
+WORKDIR /usr/src/server
 
 COPY --chown=node:node ./src ./src
 COPY --chown=node:node ./package*.json .
 
 RUN npm ci
 
-ENV DEBUG=todo-backend:*
+ENV DEBUG=server:*
 
 USER node
 

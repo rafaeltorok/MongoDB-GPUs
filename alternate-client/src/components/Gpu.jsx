@@ -31,6 +31,7 @@ export function Gpu({ gpu }) {
     : gpu.gpuline.toLowerCase() === 'arc'
     ? 'intel'
     : 'generic';
+  const vramToDisplay = gpu.vram < 1 ? `${gpu.vram * 1000}MB` : `${gpu.vram}GB`;
 
   return (
     <div>
@@ -63,7 +64,7 @@ export function Gpu({ gpu }) {
             {renderRow('CORES', `${gpu.cores}`)}
             {renderRow('TMUs', `${gpu.tmus}`)}
             {renderRow('ROPs', `${gpu.rops}`)}
-            {renderRow('VRAM', `${gpu.vram}GB ${gpu.memtype}`)}
+            {renderRow('VRAM', `${vramToDisplay} ${gpu.memtype}`)}
             {renderRow('BUS WIDTH', `${gpu.bus} bit`)}
 
             <TableRow className='table-header'>

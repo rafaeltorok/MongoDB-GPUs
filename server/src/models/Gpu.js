@@ -7,12 +7,12 @@ const gpuSchema = new mongoose.Schema({
   cores: { type: Number, required: true, min: 1 },
   tmus: { type: Number, required: true, min: 1 },
   rops: { type: Number, required: true, min: 1 },
-  vram: { type: Number, required: true, min: 1 },
+  vram: { type: Number, required: true, min: 0.1 },
   bus: { type: Number, required: true, min: 1 },
   memtype: { type: String, required: true, trim: true },
   baseclock: { type: Number, required: true, min: 1 },
   boostclock: { type: Number, required: true, min: 1 },
-  memclock: { type: Number, required: true, min: 1 },
+  memclock: { type: Number, required: true, min: 0.01 },
 });
 
 const Gpu = mongoose.model("Gpu", gpuSchema);

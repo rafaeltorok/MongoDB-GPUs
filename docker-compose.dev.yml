@@ -43,6 +43,8 @@ services:
       - "5173:5173"
     depends_on:
       - server
+    environment:
+      - VITE_BACKEND_URL=http://localhost:4000/graphql
     command: npm run dev -- --host
 
   alt-client:
@@ -59,6 +61,8 @@ services:
       - "5174:5174"
     depends_on:
       - server
+    environment:
+      - VITE_BACKEND_URL=http://localhost:4000/graphql
     command: npm run dev -- --host --port 5174
 
 networks:
