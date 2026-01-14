@@ -5,8 +5,8 @@ const cors = require('cors');
 const mongoose = require('mongoose');
 require('dotenv').config();
 
-const typeDefs = require('./schemas/schemas');
-const resolvers = require('./resolvers/resolvers');
+const typeDefs = require('./schema/typeDefs');
+const resolvers = require('./schema/resolvers');
 
 async function startServer() {
 	// More robust MongoDB connection handling
