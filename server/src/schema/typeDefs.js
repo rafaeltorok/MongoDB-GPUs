@@ -1,7 +1,7 @@
-const { gql } = require('graphql-tag');
+import { gql } from "graphql-tag";
 
 const typeDefs = gql`
-	type Query {
+  type Query {
     allGpus: [Gpu!]
     findGpu(id: ID!): Gpu
   }
@@ -37,7 +37,25 @@ const typeDefs = gql`
       boostclock: Int!
       memclock: Float!
     ): Gpu!
+
+    removeGpu(id: ID!): Gpu
+
+    updateGpu(
+      id: ID!
+      manufacturer: String
+      gpuline: String
+      model: String
+      cores: Int
+      tmus: Int
+      rops: Int
+      vram: Float
+      bus: Int
+      memtype: String
+      baseclock: Int
+      boostclock: Int
+      memclock: Float
+    ): Gpu
   }
 `;
 
-module.exports = typeDefs;
+export default typeDefs;

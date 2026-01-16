@@ -4,6 +4,7 @@
 - [About](#about)
 - [Docker](#docker)
 - [Accessing the web app](#accessing-the-web-app)
+- [CRUD operations](#crud-operations)
 
 
 ## About
@@ -101,28 +102,216 @@ docker-compose up -d
 - Alternative frontend: http://localhost:8000/alt
 
 
-### Example mutation
-Use the following inside the Apollo Sandbox
-```
-mutation add_RTX_3060 {
-  addGpu(
-    manufacturer: "NVIDIA",
-    gpuline: "GeForce",
-    model: "RTX 3060",
-    cores: 3584,
-    tmus: 112,
-    rops: 48,
-    vram: 12,
-    bus: 192,
-    memtype: "GDDR6",
-    baseclock: 1320,
-    boostclock: 1777,
-    memclock: 15
-  ) {
-    _id
-    manufacturer
-    gpuline
-    model
+
+## CRUD operations
+- Get all available data
+	```gql
+	query allGpus {
+		allGpus {
+			_id
+			manufacturer
+			gpuline
+			model
+			cores
+			tmus
+			rops
+			vram
+			bus
+			memtype
+			baseclock
+			boostclock
+			memclock
+		}
+	}
+	```
+
+- Get a single GPU via the ID
+	```gql
+	query FindGpu($findGpuId: ID!) {
+		findGpu(id: $findGpuId) {
+			_id
+			manufacturer
+			gpuline
+			model
+			cores
+			tmus
+			rops
+			vram
+			bus
+			memtype
+			baseclock
+			boostclock
+			memclock
+		}
+	}
+	```
+
+	- Variables
+		```gql
+		{
+			"findGpuId": "<id>"
+		}
+		```
+
+- Add a new graphics card
+	```gql
+	mutation addGpu {
+		addGpu(
+			manufacturer: "NVIDIA",
+			gpuline: "GeForce",
+			model: "RTX 3060",
+			cores: 3584,
+			tmus: 112,
+			rops: 48,
+			vram: 12,
+			bus: 192,
+			memtype: "GDDR6",
+			baseclock: 1320,
+			boostclock: 1777,
+			memclock: 15
+		) {
+			_id
+			manufacturer
+			gpuline
+			model
+			cores
+			tmus
+			rops
+			vram
+			bus
+			memtype
+			baseclock
+			boostclock
+			memclock
+		}
+	}
+	```
+
+	OR (via variables)
+	```gql
+	mutation addGpu(
+		$manufacturer: String!,
+		$gpuline: String!,
+		$model: String!,
+		$cores: Int!,
+		$tmus: Int!,
+		$rops: Int!,
+		$vram: Float!,
+		$bus: Int!,
+		$memtype: String!,
+		$baseclock: Int!,
+		$boostclock: Int!,
+		$memclock: Float!
+	) {
+		addGpu(
+			manufacturer: $manufacturer, 
+			gpuline: $gpuline, 
+			model: $model, 
+			cores: $cores, 
+			tmus: $tmus, 
+			rops: $rops, 
+			vram: $vram, 
+			bus: $bus, 
+			memtype: $memtype, 
+			baseclock: $baseclock, 
+			boostclock: $boostclock, 
+			memclock: $memclock
+		) {
+			_id
+			manufacturer
+			gpuline
+			model
+			cores
+			tmus
+			rops
+			vram
+			bus
+			memtype
+			baseclock
+			boostclock
+			memclock
+		}
+	}
+	```
+
+	- Variables
+		```gql
+		{
+			"manufacturer": "NVIDIA",
+			"gpuline": "GeForce",
+			"model": "RTX 3060",
+			"cores": 3584,
+			"tmus": 112,
+			"rops": 48,
+			"vram": 12,
+			"bus": 192,
+			"memtype": "GDDR6",
+			"baseclock": 1320,
+			"boostclock": 1777,
+			"memclock": 15
+		}
+		```
+
+- Remove a GPU
+  ```gql
+	mutation removeGpu($removeGpuId: ID!) {
+  	removeGpu(id: $removeGpuId) {
+			id
+			manufacturer
+			gpuline
+			model
+			cores
+			tmus
+			rops
+			vram
+			bus
+			memtype
+			baseclock
+			boostclock
+			memclock
+		}
+	}
+  ```
+
+	- Variables
+		```gql
+		{
+			"removeGpuId": "<id>"
+		}
+		```
+
+- Update a GPU's specs
+  ```gql
+  mutation updateGpu($updateGpuId: ID!) {
+  	updateGpu(
+			id: $updateGpuId
+			cores: 960
+      tmus: 112
+      rops: 96
+      vram: 0.5
+		) {
+      id
+      manufacturer
+      gpuline
+      model
+      cores
+      tmus
+      rops
+      vram
+      bus
+      memtype
+      baseclock
+      boostclock
+      memclock
+    }
   }
-}
-```
+  ```
+
+	- Variables
+		```gql
+		{
+			"updateGpuId": "<id>"
+		}
+		```
+
+  - You can update any number of fields in a single query.

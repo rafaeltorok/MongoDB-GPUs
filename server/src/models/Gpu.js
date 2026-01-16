@@ -1,4 +1,4 @@
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 
 const gpuSchema = new mongoose.Schema({
   manufacturer: { type: String, required: true, trim: true },

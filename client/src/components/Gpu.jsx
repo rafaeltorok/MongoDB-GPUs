@@ -1,34 +1,38 @@
-import calculatePerformance from '../utils/calculatePerformance';
+import calculatePerformance from "../utils/calculatePerformance";
 
 function Gpu({ gpu }) {
-  const manufacturerName = 
-    gpu.manufacturer.toLowerCase() === 'nvidia'
-    ? 'nvidia'
-    : gpu.manufacturer.toLowerCase() === 'amd'
-    ? 'amd'
-    : gpu.manufacturer.toLowerCase() === 'intel'
-    ? 'intel'
-    : gpu.gpuline.toLowerCase() === 'geforce'
-    ? 'nvidia'
-    : gpu.gpuline.toLowerCase() === 'radeon'
-    ? 'amd'
-    : gpu.gpuline.toLowerCase() === 'arc'
-    ? 'intel'
-    : 'generic';
+  const manufacturerName =
+    gpu.manufacturer.toLowerCase() === "nvidia"
+      ? "nvidia"
+      : gpu.manufacturer.toLowerCase() === "amd"
+        ? "amd"
+        : gpu.manufacturer.toLowerCase() === "intel"
+          ? "intel"
+          : gpu.gpuline.toLowerCase() === "geforce"
+            ? "nvidia"
+            : gpu.gpuline.toLowerCase() === "radeon"
+              ? "amd"
+              : gpu.gpuline.toLowerCase() === "arc"
+                ? "intel"
+                : "generic";
   const vramToDisplay = gpu.vram < 1 ? `${gpu.vram * 1000}MB` : `${gpu.vram}GB`;
 
   const performance = calculatePerformance(gpu);
 
-  return(
+  return (
     <div className="container">
       <div className="table-main-header">
-        <h2 className={manufacturerName}>{gpu.manufacturer} {gpu.gpuline} {gpu.model}</h2>
+        <h2 className={manufacturerName}>
+          {gpu.manufacturer} {gpu.gpuline} {gpu.model}
+        </h2>
       </div>
       <div className="tables">
         <table className={manufacturerName}>
           <thead>
             <tr>
-              <th className="table-header" colSpan={2}>SPECIFICATIONS</th>
+              <th className="table-header" colSpan={2}>
+                SPECIFICATIONS
+              </th>
             </tr>
           </thead>
           <tbody>
@@ -46,7 +50,9 @@ function Gpu({ gpu }) {
             </tr>
             <tr>
               <th>VRAM</th>
-              <td>{vramToDisplay} {gpu.memtype}</td>
+              <td>
+                {vramToDisplay} {gpu.memtype}
+              </td>
             </tr>
             <tr>
               <th>BUS WIDTH</th>
@@ -54,11 +60,13 @@ function Gpu({ gpu }) {
             </tr>
           </tbody>
         </table>
-        
+
         <table className={manufacturerName}>
           <thead>
             <tr>
-              <th className="table-header" colSpan={2}>CLOCK SPEEDS</th>
+              <th className="table-header" colSpan={2}>
+                CLOCK SPEEDS
+              </th>
             </tr>
           </thead>
           <tbody>
@@ -76,11 +84,13 @@ function Gpu({ gpu }) {
             </tr>
           </tbody>
         </table>
-        
+
         <table className={manufacturerName}>
           <thead>
             <tr>
-              <th className="table-header" colSpan={2}>THEORETICAL PERFORMANCE</th>  
+              <th className="table-header" colSpan={2}>
+                THEORETICAL PERFORMANCE
+              </th>
             </tr>
           </thead>
           <tbody>
@@ -104,7 +114,7 @@ function Gpu({ gpu }) {
         </table>
       </div>
     </div>
-  )
+  );
 }
 
 export default Gpu;
