@@ -12,7 +12,8 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 
-  font-family: 'digital-dreamers', system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-family:
+    "digital-dreamers", system-ui, Avenir, Helvetica, Arial, sans-serif;
 
   background-image: url(img/background.jpg);
   background-repeat: no-repeat;
@@ -28,5 +29,5 @@ body {
   place-items: center;
   min-width: 320px;
   min-height: 100vh;
-  font-family: 'digital-dreamers', sans-serif;
+  font-family: "digital-dreamers", sans-serif;
 }

@@ -1,10 +1,18 @@
+import { useState } from "react";
+
 import { ALL_GPUS } from "./graphql/queries";
 import { useQuery } from "@apollo/client";
-import Gpu from "./components/Gpu";
+
+import GpuList from "./components/GpuList";
+import SearchBar from "./components/SearchBar";
+
+import GpuContext from "./GpuContext";
+
 import "./App.css";
 
 function App() {
   const { data, loading, error } = useQuery(ALL_GPUS);
+  const [searchTerm, setSearchTerm] = useState("");
 
   if (loading) {
     return <div>loading...</div>;
@@ -17,11 +25,17 @@ function App() {
   const gpus = data?.allGpus || [];
 
   return (
-    <div>
-      {gpus.map((gpu) => {
-        return <Gpu gpu={gpu} key={gpu._id} />;
-      })}
-    </div>
+    <GpuContext.Provider
+      value={{
+        searchTerm,
+        setSearchTerm,
+        gpus,
+      }}
+    >
+      <h1 id="title-header">MongoDB GPUs</h1>
+      <SearchBar />
+      <GpuList />
+    </GpuContext.Provider>
   );
 }
 

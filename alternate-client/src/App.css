@@ -3,13 +3,13 @@
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
-  font-family: 'digital-dreamers', 'sans-serif';
+  font-family: "digital-dreamers", "sans-serif";
   font-size: 0.8rem;
 }
 
 @font-face {
-  font-family: 'digital-dreamers';
-  src: url('./fonts/DigitalDreamers-jy99.ttf') format('truetype');
+  font-family: "digital-dreamers";
+  src: url("./fonts/DigitalDreamers-jy99.ttf") format("truetype");
   font-weight: normal;
   font-style: normal;
 }
@@ -20,13 +20,23 @@
   border: 1px solid #ccc;
   border-radius: 8px;
   padding: 1rem;
-  background-color: rgba(0, 0, 0, 0.85); /* Optional: dark background for contrast */
+  background-color: rgba(
+    0,
+    0,
+    0,
+    0.85
+  ); /* Optional: dark background for contrast */
 }
 
 .gpu-table td,
 .gpu-table th {
   color: white;
-  border-color: rgba(68, 68, 68, 0.25); /* Optional: adjust border for dark mode */
+  border-color: rgba(
+    68,
+    68,
+    68,
+    0.25
+  ); /* Optional: adjust border for dark mode */
 }
 
 .main-table-header {
@@ -34,7 +44,7 @@
   text-align: center;
   font-weight: bold;
   font-size: 2rem;
-  color: 'white';
+  color: "white";
 }
 
 .main-table-header,
@@ -60,7 +70,7 @@
 
 .intel thead th,
 .intel td {
-  color: #0068B5;
+  color: #0068b5;
 }
 
 @media only screen and (hover: none) and (pointer: coarse) {

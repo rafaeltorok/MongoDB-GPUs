@@ -1,8 +1,9 @@
-import { createTheme } from '@mui/material/styles';
+import { createTheme } from "@mui/material/styles";
 
 const theme = createTheme({
   typography: {
-    fontFamily: '"digital-dreamers", "Roboto", "Helvetica", "Arial", sans-serif',
+    fontFamily:
+      '"digital-dreamers", "Roboto", "Helvetica", "Arial", sans-serif',
   },
 });
 

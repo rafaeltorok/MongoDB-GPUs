@@ -1,7 +1,7 @@
 import ReactDOM from "react-dom/client";
-import "./index.css";
 import App from "./App.jsx";
 import { ApolloClient, ApolloProvider, InMemoryCache } from "@apollo/client";
+import "./index.css";
 
 const client = new ApolloClient({
   uri: import.meta.env.VITE_BACKEND_URL || "/graphql",

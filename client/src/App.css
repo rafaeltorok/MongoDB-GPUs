@@ -24,6 +24,31 @@
   border-bottom-right-radius: 1rem;
 }
 
+#title-header {
+  text-decoration: underline;
+  font-weight: bold;
+  font-size: 3rem;
+  border: 3px solid gray;
+  padding: 1rem;
+  max-width: 550px;
+  margin: 1rem auto;
+  border-radius: 1rem;
+  background-color: rgba(0, 0, 0, 0.75);
+}
+
+#search-bar {
+  font-family: inherit;
+  font-size: large;
+  padding: 1rem;
+  margin: 2rem auto;
+  width: 300px;
+  max-width: 80%;
+  border-radius: 1rem;
+  border: 3px solid white;
+  border-style: inset;
+  background-color: rgba(0, 0, 0, 0.75);
+}
+
 .tables {
   display: flex;
   justify-content: center;
