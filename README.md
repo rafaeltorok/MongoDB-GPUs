@@ -3,6 +3,7 @@
 ## Table of Contents
 - [About](#about)
 - [Docker](#docker)
+- [Static build](#static-build)
 - [Accessing the web app](#accessing-the-web-app)
 - [CRUD operations](#crud-operations)
 
@@ -24,7 +25,7 @@ docker compose -f ./docker-compose.dev.yml up -d
 
 Production build
 ```
-docker-compose up -d
+docker compose up -d
 ```
 
 ### Using separate Docker containers
@@ -77,6 +78,30 @@ docker-compose up -d
     ```
 
 
+## Static build
+To run the static build outside of Docker, follow these steps:
+
+1. Build the client you wish to test
+		```bash
+		# Main client
+		cd ./client && npm run build
+
+		# Alternate client
+		cd ./alternate-client && npm run build
+		```
+
+2. Copy the static build to the main server folder
+		```bash
+		cp -r ./dist ../server
+		```
+
+3. Run the server in production mode
+		```bash
+		cd ./server && npm install && npm run start
+		```
+
+
+
 ## Accessing the web app
 #### Standard frontend
 <img src="./resources/img/mongodb-gpus-frontend.png" alt="MongoDB GPUs web UI" width="500"/>
@@ -84,7 +109,8 @@ docker-compose up -d
 #### Alternative frontend (built with Material UI)
 <img src="./resources/img/mongodb-gpus-material-ui.png" alt="MongoDB GPUs alternative UI" width="400"/>
 
-### In development mode
+### Docker
+#### In development mode
 - Apollo Sandbox: http://localhost:4000/graphql
   
 - Standard frontend: http://localhost:5173
@@ -92,7 +118,7 @@ docker-compose up -d
 - Alternative frontend: http://localhost:5174
 
 
-### In production mode
+#### In production mode
 - Apollo Sandbox: http://localhost:8000/graphql
 
 - The server must always redirect to `/graphql` for Nginx to work as a reverse proxy.
@@ -100,6 +126,12 @@ docker-compose up -d
 - Standard frontend: http://localhost:8000
   
 - Alternative frontend: http://localhost:8000/alt
+
+
+### Static build
+- Apollo Sandbox: http://localhost:4000/graphql
+  
+- Web UI: http://localhost:4000
 
 
 

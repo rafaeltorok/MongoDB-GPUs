@@ -1,7 +1,7 @@
 services:
   server:
     build: ./server
-    container_name: gpus-backend
+    container_name: mongodb-gpus-server
     env_file:
       - ./server/.env
     expose:
@@ -15,7 +15,7 @@ services:
       dockerfile: nginx/Dockerfile
       args:
         - VITE_BACKEND_URL=/graphql
-    container_name: gpus-nginx
+    container_name: mongodb-gpus-nginx
     ports:
       - "8000:80"
     depends_on:

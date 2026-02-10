@@ -1,9 +1,9 @@
 version: '3.8'
 
 services:
-  mongo:
+  database:
     image: mongo
-    container_name: mongo
+    container_name: mongodb-gpus-database
     networks:
       - network
     ports:
@@ -24,9 +24,9 @@ services:
     ports:
       - "4000:4000"
     environment:
-      - MONGODB_URI=mongodb://mongo:27017/gpus_database
+      - MONGODB_URI=mongodb://database:27017/gpus_database
     depends_on:
-      - mongo
+      - database
     command: npm run dev
 
   client:
