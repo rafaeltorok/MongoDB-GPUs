@@ -6,7 +6,7 @@ export default function GpuList() {
   const { gpus, searchTerm } = useContext(GpuContext);
 
   const checkTerm = (text) => {
-    return text.toLowerCase().includes(searchTerm.trim().toLowerCase());
+    return text.toLowerCase().includes(searchTerm.trimStart().toLowerCase());
   };
 
   return (
