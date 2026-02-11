@@ -1,4 +1,4 @@
-const mongoose = require("mongoose");
+import mongoose from "mongoose";
 
 const gpuSchema = new mongoose.Schema({
   manufacturer: { type: String, required: true, trim: true },
@@ -16,4 +16,4 @@ const gpuSchema = new mongoose.Schema({
 });
 
 const Gpu = mongoose.model("Gpu", gpuSchema);
-module.exports = Gpu;
+export default Gpu;
