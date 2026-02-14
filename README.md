@@ -76,7 +76,7 @@ docker compose up -d
 
 2. Start the server container
     ```
-    docker run -d --name mongodb-gpus -p 4000:4000 -e <mongodb_env_variable> mongodb-gpus-server
+    docker run -d --name mongodb-gpus -p 4000:4000 -e "MONGODB_URI=<mongodb_env_variable>" mongodb-gpus-server
     ```
 
 
