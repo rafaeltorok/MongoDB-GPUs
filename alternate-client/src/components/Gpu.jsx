@@ -4,6 +4,7 @@ import TableCell from "@mui/material/TableCell";
 import TableContainer from "@mui/material/TableContainer";
 import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
+
 import calculatePerformance from "../utils/calculatePerformance";
 
 const renderRow = (header, data) => {
@@ -17,7 +18,7 @@ const renderRow = (header, data) => {
   );
 };
 
-export function Gpu({ gpu }) {
+export default function Gpu({ gpu }) {
   const performance = calculatePerformance(gpu);
   const manufacturerName =
     gpu.manufacturer.toLowerCase() === "nvidia"
