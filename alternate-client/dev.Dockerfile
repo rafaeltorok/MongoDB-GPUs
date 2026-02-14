@@ -1,10 +1,8 @@
 FROM node:20
 
-WORKDIR /usr/src/app
+WORKDIR /usr/src/alternate_client
 
 COPY package*.json ./
 RUN npm install
-
-COPY . .
 
 CMD ["npm", "run", "dev", "--", "--host"]

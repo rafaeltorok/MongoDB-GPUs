@@ -23,6 +23,8 @@ docker compose -f ./docker-compose.dev.yml up -d
 
 - The development build uses a containerized Mongo database for testing, preventing it from affecting the main MongoDB database from the cloud server.
 
+- This build also supports hot reloading for the client, alt-client and server.
+
 Production build
 ```
 docker compose up -d
