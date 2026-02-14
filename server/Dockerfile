@@ -1,7 +1,7 @@
 # Backend/Dockerfile
 FROM node:20-alpine
 
-WORKDIR /app
+WORKDIR /usr/src/app
 
 # Copy only source code (not .env, node_modules, etc.)
 COPY package*.json ./

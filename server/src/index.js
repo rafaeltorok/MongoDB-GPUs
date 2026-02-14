@@ -42,7 +42,10 @@ async function startServer() {
   // Start Apollo server
   await server.start();
 
-  app.use(express.static("dist"));
+  // Serve the static build for both clients
+  app.use(express.static("dist/client"));
+  app.use('/alt', express.static("dist/alt-client"));
+
   // Apply middleware to the GraphQL endpoint specifically
   // This ensures JSON parsing happens before Apollo middleware processes the request
   app.use(
